@@ -1,4 +1,6 @@
 # ConsoleLogComponent
+[![npm version](https://badge.fury.io/js/console-log-component.svg)](https://www.npmjs.com/package/console-log-component)
+
 ブラウザ標準のconsoleオブジェクトのメソッドを置き換え、
 `console.log`などの結果を開発者ツールだけでなくコンテンツ画面上にも表示します。
 
