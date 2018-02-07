@@ -1,0 +1,94 @@
+
+@keyframes containerShow {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+.DisplayConsoleContainer {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  width: 95%;
+  height: 95%;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 4px;
+  border: solid 1px #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  z-index: 9999999;
+
+  &--show {
+    display: flex;
+    flex-direction: column;
+    animation: containerShow 0.12s ease-in;
+  }
+
+  &__header {
+    @header-height: 44px;
+
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: @header-height;
+    background-color: #c5dfe3;
+    border-bottom: solid 1px #ccc;
+
+    h1 {
+      flex: 1;
+      padding: 0 0.5em;
+      margin: 0;
+      font-size: 24px;
+      line-height: @header-height;
+    }
+  }
+
+  &__closeButton {
+    position: relative;
+    box-sizing: border-box;
+    width: 36px;
+    height: 36px;
+    margin: 4px;
+    background-color: #fff;
+    border: solid 1px #666;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &::before, &::after {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 20px;
+      height: 0;
+      margin: auto;
+      border-top: solid 1px #000;
+    }
+    &::before {
+      transform: rotate(45deg);
+    }
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  &__body {
+    flex: 1;
+    position: relative;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    color: #333;
+  }
+}

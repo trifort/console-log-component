@@ -1,0 +1,71 @@
+.DisplayConsoleMenu {
+  position: absolute;
+  display: none;
+  width: 44px;
+  height: 44px;
+  margin: auto;
+  border-radius: 50%;
+  background: #000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  font-size: 24px;
+  line-height: 1;
+  font-weight: bold;
+  z-index: 9999999;
+  cursor: pointer;
+  font-family: monospace;
+
+  @position-margin: 12px;
+
+  // 表示位置
+  &--top {
+    top: @position-margin;
+  }
+  &--middle {
+    top: 0;
+    bottom: 0;
+  }
+  &--bottom {
+    bottom: @position-margin;
+  }
+  &--left {
+    left: @position-margin;
+  }
+  &--center {
+    left: 0;
+    right: 0;
+  }
+  &--right {
+    right: @position-margin;
+  }
+
+  // 表示状態
+  &--show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @icon-line-width: 3px;
+
+  &::before, &::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 20px;
+    height: 0;
+    margin: auto;
+  }
+  &::before {
+    height: @icon-line-width * 5;
+    border-top: solid @icon-line-width #fff;
+    border-bottom: solid @icon-line-width #fff;
+  }
+  &::after {
+    height: 0;
+    border-top: solid @icon-line-width #fff;
+  }
+}

@@ -1,0 +1,133 @@
+@import './_mixin.less';
+
+.DisplayConsoleRow {
+  @cell-padding: 6px;
+
+  display: flex;
+  width: 100%;
+  height: auto;
+  font-family: Monaco, Consolas, monospace;
+
+  & + & {
+    border-top: solid 1px #e0e0e0;
+  }
+
+  // 通し番号
+  &__number {
+    display: inline-block;
+    min-width: 2em;
+    padding: 0 @cell-padding;
+    font-size: 9px;
+    text-align: center;
+    color: #999;
+    user-select: none;
+  }
+
+  // 出力部分
+  &__values {
+    flex: 1;
+  }
+
+  // ファイル情報
+  &__info {
+    box-sizing: border-box;
+    display: inline-block;
+    width: auto;
+    padding: 0 @cell-padding;
+    font-size: 9px;
+    text-align: right;
+    white-space: nowrap;
+    color: #999;
+    user-select: none;
+  }
+
+  // アイコン
+  i {
+    display: inline-block;
+    width: 1em;
+    height: 100%;
+    margin-right: 0.5em;
+    font-size: 1.2em;
+    line-height: 1.6;
+    vertical-align: top;
+
+    &::before {
+      width: 14px;
+      height: 14px;
+      border-radius: 7px;
+      color: white;
+      display: block;
+      text-align: center;
+      font-style: normal;
+      line-height: 14px;
+      font-size: 10px;
+      margin-top: 3px;
+    }
+  }
+
+  // 出力タイプごとのスタイル
+  &--error {
+    background-color: #ffe3e3;
+    color: red;
+    i {
+      &::before {
+        content: "×";
+        background-color: red;
+      }
+    }
+  }
+
+  &--warn {
+    background-color: #ffffdc;
+
+    i {
+      &::before {
+        content: "!";
+        background-color: #ffce00;
+      }
+    }
+  }
+
+  &--info {
+    i {
+      &::before {
+        content: "i";
+        background-color: blue;
+      }
+    }
+  }
+
+  .screen-sp({
+    @row-height: 24px;
+
+    position: relative;
+    padding-bottom: @row-height;
+    min-height: @row-height;
+    font-size: 14px;
+    line-height: @row-height;
+
+    i {
+      max-height: @row-height;
+    }
+
+    &__info {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      align-self: flex-end;
+      width: 100%;
+    }
+  });
+
+  .screen-pc({
+    @row-height: 21px;
+
+    min-height: @row-height;
+    font-size: 11px;
+    line-height: @row-height;
+
+    i {
+      max-height: @row-height;
+    }
+  });
+}

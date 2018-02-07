@@ -1,0 +1,84 @@
+.DisplayConsoleCell {
+  display: inline-block;
+  user-select: none;
+  letter-spacing: 0.04em;
+  word-break: break-all;
+  vertical-align: top;
+
+  & + & {
+    margin-left: 1em;
+    white-space: pre-line;
+  }
+
+  &__node {
+    display: inline-block;
+
+    &--number,
+    &--boolean {
+      color: blue;
+    }
+
+    &--stringValue {
+      color: red;
+    }
+
+    &--null {
+      color: #999;
+    }
+
+    // オブジェクトのパラメータ名
+    &--param {
+      color:  purple;
+    }
+
+    // 配列省略時の３点リーダー
+    &--leader {
+      letter-spacing: -0.3em;
+      margin-right: 0.3em;
+    }
+  }
+
+  &Acordion {
+
+    &__line {
+      position: relative;
+      display: inline-block;
+      padding-left: 12px;
+
+      &::before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        margin: auto;
+        border: solid 4px transparent;
+        border-left-color: #666;
+        border-left-width: 8px;
+        border-right-width: 0;
+      }
+
+      &--open::before {
+        transform: rotate(90deg);
+      }
+    }
+
+    &__params {
+      display: none;
+      padding-left: 2em;
+    }
+
+    &__checkbox {
+      display: none;
+    }
+
+    &__checkbox:checked + &__params {
+      display: block;
+      white-space: pre-line;
+    }
+  }
+}
+
