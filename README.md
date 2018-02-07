@@ -2,7 +2,19 @@
 ブラウザ標準のconsoleオブジェクトのメソッドを置き換え、
 `console.log`などの結果を開発者ツールだけでなくコンテンツ画面上にも表示します。
 
+## Download
+- [consoleLogComponent.js](https://trifort.github.io/console-log-component/docs/1.0.0/consoleLogComponent.js)
+
 ## Usage
+In a browser:
+```html
+<script src="consoleLogComponent.js"></script>
+<script>
+  var Console = ConsoleLogComponent.init()
+</script>
+```
+
+Using npm:
 ```sh
 $ npm i -S console-log-component
 ```
