@@ -1,17 +1,20 @@
 
 const webpack = require('webpack')
 const path = require('path')
+const version = require('./package.json').version
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const src  = path.resolve(__dirname, 'src')
-const dist = path.resolve(__dirname, 'dist')
+const dist = path.resolve(__dirname, `docs/${version}`)
 
 module.exports = {
-  entry: `${src}/index.js`,
+  entry: `./index.js`,
 
   output: {
     path: dist,
     pathinfo: true,
     publicPath: './',
-    filename: 'index.js',
+    filename: 'consoleLogComponent.js',
+    library: "ConsoleLogComponent",
     libraryTarget: 'umd',
   },
 
@@ -50,5 +53,10 @@ module.exports = {
       'methods'  : `${src}/js/methods`,
       'services' : `${src}/js/services`,
     },
-  }
+  },
+  plugins: [
+    new UglifyJSPlugin({
+      parallel: 4
+    })
+  ]
 }
