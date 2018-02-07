@@ -1,6 +1,5 @@
 //------------------------------------------------------------------------------
 
-import 'babel-polyfill'
 import 'intersection-observer'
 
 import 'css/index.less'
@@ -13,7 +12,6 @@ const __createTextNode = document.createTextNode.bind(document)
 const __createFragment = document.createDocumentFragment.bind(document)
 
 const __toString = Object.prototype.toString
-
 
 //------------------------------------------------------------------------------
 // Utils

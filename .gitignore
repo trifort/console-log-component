@@ -1,7 +1,2 @@
 # directories
 /node_modules
-
-# config files
-.*
-!.gitignore
-!.babelrc
